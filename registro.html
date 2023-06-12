@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./CSS/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/99cc92199c.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="Imagenes/Logo-Sudo.ico">
+          
+
+    <style>
+        .headerIndex {
+            margin-bottom: 20px;
+        }
+
+        .link {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="headerIndex">
+        <nav>
+            <br>
+            <a class="link" href="Index.html">Inicio</a>             
+            <a class="link" href="registro.html">Registro</a> 
+            <a class="link" href="contacto.html">Contacto</a> 
+            <a class="link" href="acerca.html">Acerca de</a> 
+            <a class="link" href="shop.html">Shop</a> 
+        </nav>
+        <div class="header-container">
+            <img src="Imagenes/Logo-Sudo.png" alt="Logo Sudo" width="400">
+        </div>
+    </header>
+
+    <br>
+
+    <main>
+        <section class="form">
+            <div class="formulario">
+                <h2>FORMULARIO DE REGISTRO</h2>
+                <form action="show_data.html" target="_blank" id="myForm">
+                    <br>
+                    <div>
+                        <label for="nombreDuenio">Nombre del dueño:</label>
+                        <input type="text" name="nombreDuenio" id="nombreDuenio" placeholder="Ingrese su nombre">
+                        <span id="errorNombreDuenio" class="error-message"></span>
+                    </div><br>             
+
+                    <div>
+                        <div>
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electrónico">
+                            <span id="errorCorreo" class="error-message"></span>
+                        </div><br>
+                                      
+                    <div>
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" name="direccion" id="direccion" placeholder="Ingrese su dirección">
+                    </div><br>
+
+                    <div>
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" name="ciudad" id="ciudad" placeholder="Ingrese la ciudad">
+                    </div><br>
+
+                    <label for="nombre">Nombre de su mascota:</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Ingrese el nombre de su mascota">
+                    <span id="errorNombreMascota" class="error-message"></span>
+                </div><br>
+
+                    <div>
+                        <label for="genero">Tipo de mascota</label>
+                        <span class="radio1">
+                            <input type="radio" name="tipo" value="can"> Canino
+                            <input type="radio" name="tipo" value="felino"> Felino
+                            <input type="radio" name="tipo" value="ave"> Ave
+                            <input type="radio" name="tipo" value="otro"> Otro
+                        </span>
+                    </div><br>
+
+                    <div>
+                        <select name="sexo" id="sexo">
+                            <option value="">Su mascota es:</option>
+                            <option value="macho">Macho</option>
+                            <option value="hembra">Hembra</option>
+                        </select>
+                    </div><br>
+
+                    <label for="tipoConsulta">Tipo de consulta:</label>
+                    <input type="text" name="tipoConsulta" id="tipoConsulta" placeholder="Ingrese el motivo de su consulta de forma breve">
+                    <span id="errorTipoConsulta" class="error-message"></span>
+                    <br><br>
+
+                    <div>
+                        <label for="papeles">Edad apróximada</label>
+                        <span class="radio2">
+                            <input type="radio" name="edad" value="0"> 0 a 6 meses
+                            <input type="radio" name="edad" value="1"> 6 meses a 1 año
+                            <input type="radio" name="edad" value="2"> Más de 1 año
+                        </span>
+                    </div><br>
+
+                    <input type="submit" value="Enviar">
+                </form>
+
+                <br>
+
+                <div id="respuestaFormulario" style="display: none;">                    
+                    <p>Gracias por registrarse, nos comunicaremos a la brevedad.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <br>
+
+    <footer>
+        <div>
+            <a class="foot-img2" href="https://web.facebook.com/"><img class="foot-img" src="./Imagenes/facebook.png" alt="facebook"></a>
+            <a class="foot-img2" href="https://www.instagram.com/"><img class="foot-img" src="./Imagenes/instagram.png" alt="instagram"></a>
+            <a class="foot-img2" href="https://twitter.com/"><img class="foot-img" src="./Imagenes/tweeter.png" alt="tweeter"></a>
+            <a class="foot-img2" href="https://web.whatsapp.com/"><img class="foot-img" src="./Imagenes/whatsapp.png" alt="whatsapp"></a>
+        </div>
+        
+        <p class="animate__animated animate__bounce">Veterinaria Sudo - © 2023 - Todos los derechos reservados<br>
+         </p>
+    </footer>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            if (validarFormulario()) {
+                document.getElementById('respuestaFormulario').style.display = 'block';
+            }
+        });
+
+        function validarFormulario() {
+            var nombreDuenio = document.getElementById('nombreDuenio').value.trim();
+            var correo = document.getElementById('correo').value.trim();
+            var nombreMascota = document.getElementById('nombre').value.trim();
+            var tipoConsulta = document.getElementById('tipoConsulta').value.trim();
+
+            var errorNombreDuenio = document.getElementById('errorNombreDuenio');
+            var errorCorreo = document.getElementById('errorCorreo');
+            var errorNombreMascota = document.getElementById('errorNombreMascota');
+            var errorTipoConsulta = document.getElementById('errorTipoConsulta');
+
+            // Reiniciar los mensajes de error
+            errorNombreDuenio.textContent = '';
+            errorCorreo.textContent = '';
+            errorNombreMascota.textContent = '';
+            errorTipoConsulta.textContent = '';
+
+            // Realizar la validación
+            var isValid = true;
+
+            if (nombreDuenio === '') {
+                errorNombreDuenio.textContent = 'Ingrese su nombre';
+                isValid = false;
+            }
+
+            if (correo === '') {
+                errorCorreo.textContent = 'Ingrese su correo electrónico';
+                isValid = false;
+            }
+
+            if (nombreMascota === '') {
+                errorNombreMascota.textContent = 'Ingrese el nombre de su mascota';
+                isValid = false;
+            }
+
+            if (tipoConsulta === '') {
+                errorTipoConsulta.textContent = 'Ingrese el motivo de su consulta';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+
+</html>
